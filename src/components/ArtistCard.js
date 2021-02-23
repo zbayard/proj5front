@@ -1,23 +1,27 @@
 import {Card, Icon} from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 
-function ArtistCard() {
+function ArtistCard({artist}) {
+
+  const {name, image, genre, type, rate, id} = artist
+
     return (
       <Card fluid color='black'>
         <Card.Content >
-          <Card.Header id='artistName'>Artist Name</Card.Header>
+          <Card.Header id='artistName'>{name}</Card.Header>
             <Card.Meta>
-              <span className='location'>City, State</span>
+              <img src={image} alt={name}/>
             </Card.Meta>
               <Card.Description>
-                <Link to={`/artists/1`}>{`More Info on this artist`}</Link>
+                <Link to={`/artists/${id}`}>{`More Info on ${name}`}</Link>
               </Card.Description>
         </Card.Content>
           <Card.Content extra>
-            <a>
-              <Icon name='beer' />
-              artist style
-            </a>
+           
+              <Icon name='music' />
+              {genre} {type}
+              <p>${rate}/hour</p>
+            
           </Card.Content>
       </Card>
     );

@@ -1,14 +1,10 @@
 .App {
   text-align: center;
-  background-color: rgb(108, 23, 177);
+  background-color: rgb(100, 65, 164);
   background-size: auto;
   background-position: static;
   overflow: hidden;
 }
-
-
-
-
 
 .App-header {
   background-color: #282c34;
@@ -22,7 +18,12 @@
 }
 
 .Header {
-  background-color: black;
+  background-color: rgb(0,0,0)
+}
+
+img{
+  height: 300px;
+  width: 300px;
 }
 
 

@@ -1,3 +1,4 @@
+import React,{useState, useEffect} from 'react'
 import {Switch, Route} from 'react-router-dom'
 
 import '../App.css';
@@ -10,6 +11,22 @@ import ArtistList from './ArtistList.js';
 
 
 function App() {
+
+  const [artists, setArtists] = useState([])
+
+    useEffect(()=>
+      fetch('http://localhost:3000/artists')
+      .then(res => res.json())
+      .then(artistData => setArtists(artistData))
+    , [])
+
+    console.log(artists)
+
+
+
+
+
+
   return (
 
     <>
@@ -28,9 +45,9 @@ function App() {
           <SignUp/>
         </Route>
         <Route exact path="/artists">
-          <ArtistList/>
+          <ArtistList artists={artists}/>
         </Route>
-        <Route path="/artists/1">
+        <Route path="/artists/:id">
           <ArtistPage/>
         </Route>
       </Switch>

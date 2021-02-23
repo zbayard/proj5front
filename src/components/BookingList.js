@@ -9,7 +9,7 @@ function BookingList() {
             Recent Bookings
           </Header>
         <BookingCard/>
-        <Button basic color='black'>Book This Artist</Button>
+        
         <NewBooking/>
       </div>
       
