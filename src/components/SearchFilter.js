@@ -1,7 +1,9 @@
+import {Input} from 'semantic-ui-react'
+
 function SearchFilter() {
     return (
       <div className="SearchFilter">
-        <h2>SearchFilter</h2>
+        <Input/>
       </div>
     );
   }
