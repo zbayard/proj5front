@@ -1,17 +1,21 @@
-import {Item} from 'semantic-ui-react'
+import {Divider, Item} from 'semantic-ui-react'
 
-function BookingCard() {
+function BookingCard({booking}) {
+
+
     return (
 
       <Item.Group>
         <Item>
-            <Item.Image size='tiny' src='hello' />
+            <Item.Image size='tiny' src={booking.user.image} />
+            <Divider horizontal />
+            <Item.Header>{booking.user.username}</Item.Header>
           <Item.Content text align='left'>
-              <Item.Header as='a'>Location</Item.Header>
-              <Item.Meta>Date </Item.Meta>
+              <Item.Header as='a'>{booking.address} {booking.city}, {booking.state}</Item.Header>
+              <Item.Meta>{booking.date} </Item.Meta>
             <Item.Description>
-                Start Time/End Time
-              <Item.Extra>rate</Item.Extra>
+                Start Time: {Date.parse(booking.start_time)} End Time: {booking.end_time}
+              <Item.Extra> Total Compensation: ${booking.payment}</Item.Extra>
             
             </Item.Description>
           </Item.Content>
