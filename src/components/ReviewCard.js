@@ -2,7 +2,7 @@ import { Button, Comment, Rating} from 'semantic-ui-react'
 
 function ReviewCard({review}) {
 
-  console.log(review)
+  
 
 
     return (
