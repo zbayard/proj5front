@@ -13,7 +13,7 @@ function ArtistPage() {
   const [reviews, setReviews] = useState([])
 
   const {id} = useParams();
-  console.log(id)
+  
 
   useEffect(() => {
     fetch(`http://localhost:3000/artists/${id}`)
@@ -24,7 +24,28 @@ function ArtistPage() {
       });
     }, [id]);
 
+    useEffect (() => {
+      fetch(`http://localhost:3000/reviews`)
+      .then(r=>r.json())
+      .then(reviewsArr => setReviews(reviewsArr))
+    }, [])
+
+    
+
+    const filteredReviews = reviews.filter(review=>{
+      if(review.artist_id == id){
+        return true
+      }else{
+        return null
+      }
+
+    });
+
+    
+      
+    
       if (!isLoaded) return <h2>Loading...</h2>;
+
 
       const {name, image, bio, type, genre, ig, youtube, spotify, soundcloud, facebook, website, rate, feature, likes} = artist;
 
@@ -51,7 +72,7 @@ function ArtistPage() {
         <BookingList/>
       </Grid.Column>
       <Grid.Column width={4} className='reviewlist'>
-        <ReviewList />
+        <ReviewList id={id} reviews={filteredReviews}/>
       </Grid.Column>
     </Grid>
       

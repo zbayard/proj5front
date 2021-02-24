@@ -3,7 +3,11 @@ import NewReview from './NewReview.js';
 import {Header, Divider, Comment, Button} from 'semantic-ui-react'
 
 
-function ReviewList() {
+function ReviewList({id, reviews}) {
+
+    const reviewCards = reviews.map(review => {
+        return <ReviewCard key={review.id} review={review}/>
+    });
 
 
     return (
@@ -12,7 +16,7 @@ function ReviewList() {
             <Header as='h2' id='reviewslist' dividing>
                 Reviews 
             </Header>
-            <ReviewCard/>
+            {reviewCards}
 
             <Divider horizontal />
 

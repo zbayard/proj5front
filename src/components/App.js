@@ -20,7 +20,7 @@ function App() {
       .then(artistData => setArtists(artistData))
     , [])
 
-    console.log(artists)
+    
 
 
 
