@@ -3,7 +3,7 @@ import {useParams, Link} from 'react-router-dom'
 import ReviewList from './ReviewList.js';
 import BookingList from "./BookingList";
 import NewBooking from "./NewBooking.js"
-import {Grid, Icon, Button, Divider, Item, Embed} from 'semantic-ui-react'
+import {Grid, Icon, Button, Divider, Item, Embed, List} from 'semantic-ui-react'
 import ReactPlayer from 'react-player'
 
 
@@ -69,6 +69,10 @@ function ArtistPage() {
       setBookingClick(!bookingClick)
     }
 
+    function handleNewBooking(newBooking){
+      setBookings([...bookings, newBooking])
+    }
+
     
       
     
@@ -90,11 +94,15 @@ function ArtistPage() {
           <img src={image}/>
           <Divider horizontal></Divider>
           <Button onClick={addLike} size='mini' basic color='black'>{likes} ♥️ </Button>
-          <Icon link name='facebook square'/>
-          <Icon link name= 'instagram'/>
-          <Icon link name='spotify'/>
-          <Icon link name='soundcloud'/>
-          <Icon link name='youtube'/>
+          <List text align="left">
+            <List.Item icon='spotify' content={<a target="_blank" href={spotify}>spotify</a>}/>
+            <List.Item icon='soundcloud' content={<a target="_blank" href={soundcloud}>soundcloud</a>}/>
+            <List.Item icon='instagram' content={<a target="_blank" href={ig}>instagram</a>}/>
+            <List.Item icon='youtube' content={<a target="_blank" href={youtube}>youtube</a>}/>
+            <List.Item icon='facebook square' content={<a target="_blank" href={facebook}>facebook</a>}/>
+            <List.Item icon='linkify' content={<a target="_blank" href={website}>website</a>}/>
+          </List>
+          
           <Item.Group>
             <Item>
               <Item.Content text align='center'>
@@ -110,7 +118,7 @@ function ArtistPage() {
               <p>{bio}</p>
               <Divider horizontal></Divider>
           <Button onClick={onBookingClick} basic color='black'>Book This Artist</Button>
-          {bookingClick ? <NewBooking/> : null}
+          {bookingClick ? <NewBooking handleNewBooking={handleNewBooking}/> : null}
 
           
         </Grid.Column>
