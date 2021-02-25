@@ -1,5 +1,5 @@
 import BookingCard from "./BookingCard";
-import NewBooking from './NewBooking.js';
+
 import {Button, Header} from 'semantic-ui-react'
 
 function BookingList({bookings}) {
@@ -15,7 +15,7 @@ function BookingList({bookings}) {
           </Header>
         {bookingCards}
         
-        <NewBooking/>
+        
       </div>
       
     );
