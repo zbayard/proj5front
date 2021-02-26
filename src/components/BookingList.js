@@ -1,6 +1,6 @@
 import BookingCard from "./BookingCard";
 
-import {Button, Header} from 'semantic-ui-react'
+import {Header} from 'semantic-ui-react'
 
 function BookingList({bookings}) {
 

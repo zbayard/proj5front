@@ -14,7 +14,7 @@ function BookingCard({booking}) {
               <Item.Header as='a'>{booking.address} {booking.city}, {booking.state}</Item.Header>
               <Item.Meta>{booking.date} </Item.Meta>
             <Item.Description>
-                Start Time: {Date.parse(booking.start_time)} End Time: {booking.end_time}
+                Start Time: {booking.start_time} End Time: {booking.end_time}
               <Item.Extra> Total Compensation: ${booking.payment}</Item.Extra>
             
             </Item.Description>

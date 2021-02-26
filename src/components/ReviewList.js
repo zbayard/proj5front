@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React from 'react'
 import ReviewCard from "./ReviewCard";
 import NewReview from './NewReview.js';
 import {Header, Divider, Comment, Button, Rating} from 'semantic-ui-react'

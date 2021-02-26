@@ -1,9 +1,9 @@
 import {Input} from 'semantic-ui-react'
 
-function SearchFilter() {
+function SearchFilter({search, setSearch}) {
     return (
       <div className="SearchFilter">
-        <Input/>
+        <Input value={search} onChange={e => setSearch(e.target.value)}/>
       </div>
     );
   }

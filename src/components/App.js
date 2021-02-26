@@ -13,12 +13,19 @@ import ArtistList from './ArtistList.js';
 function App() {
 
   const [artists, setArtists] = useState([])
+  const [search, setSearch] = useState('')
+
+  
 
     useEffect(()=>
       fetch('http://localhost:3000/artists')
       .then(res => res.json())
       .then(artistData => setArtists(artistData))
     , [])
+
+
+    const filteredArtists = artists.filter(artist => artist.name.toLowerCase().includes(search.toLocaleLowerCase()))
+    
 
     
 
@@ -31,7 +38,7 @@ function App() {
 
     <>
     <div className="App">
-      <Header/>
+      <Header search={search} setSearch={setSearch}/>
      
 
       <Switch>
@@ -45,7 +52,7 @@ function App() {
           <SignUp/>
         </Route>
         <Route exact path="/artists">
-          <ArtistList artists={artists}/>
+          <ArtistList artists={filteredArtists}/>
         </Route>
         <Route path="/artists/:id">
           <ArtistPage/>
@@ -59,11 +66,4 @@ function App() {
 
 export default App;
 
-<div className="App">
-<Header/>
-<UserProfile />
-<ArtistPage />
-<Login />
-<SignUp />
-<ArtistList />
-</div>
+

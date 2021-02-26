@@ -1,9 +1,9 @@
 import React, {useEffect, useState} from 'react'
-import {useParams, Link} from 'react-router-dom'
+import {useParams} from 'react-router-dom'
 import ReviewList from './ReviewList.js';
 import BookingList from "./BookingList";
 import NewBooking from "./NewBooking.js"
-import {Grid, Icon, Button, Divider, Item, Embed, List} from 'semantic-ui-react'
+import {Grid, Button, Divider, Item, List} from 'semantic-ui-react'
 import ReactPlayer from 'react-player'
 
 
@@ -18,6 +18,8 @@ function ArtistPage() {
   const [bookingClick, setBookingClick] = useState(false)
 
   const {id} = useParams();
+
+  
   
 
   useEffect(() => {
@@ -91,16 +93,16 @@ function ArtistPage() {
       <Grid >
         <Grid.Column width={8} className='artist' border>
           <h1>{name}</h1>
-          <img src={image}/>
+          <img src={image} alt={name}/>
           <Divider horizontal></Divider>
           <Button onClick={addLike} size='mini' basic color='black'>{likes} ♥️ </Button>
           <List text align="left">
-            <List.Item icon='spotify' content={<a target="_blank" href={spotify}>spotify</a>}/>
-            <List.Item icon='soundcloud' content={<a target="_blank" href={soundcloud}>soundcloud</a>}/>
-            <List.Item icon='instagram' content={<a target="_blank" href={ig}>instagram</a>}/>
-            <List.Item icon='youtube' content={<a target="_blank" href={youtube}>youtube</a>}/>
-            <List.Item icon='facebook square' content={<a target="_blank" href={facebook}>facebook</a>}/>
-            <List.Item icon='linkify' content={<a target="_blank" href={website}>website</a>}/>
+            <List.Item icon='spotify' content={<a rel="noreferrer" target="_blank" href={spotify}>spotify</a>}/>
+            <List.Item icon='soundcloud' content={<a rel="noreferrer" target="_blank" href={soundcloud}>soundcloud</a>}/>
+            <List.Item icon='instagram' content={<a rel="noreferrer" target="_blank" href={ig}>instagram</a>}/>
+            <List.Item icon='youtube' content={<a rel="noreferrer" target="_blank" href={youtube}>youtube</a>}/>
+            <List.Item icon='facebook square' content={<a rel="noreferrer" target="_blank" href={facebook}>facebook</a>}/>
+            <List.Item icon='linkify' content={<a rel="noreferrer" target="_blank" href={website}>website</a>}/>
           </List>
           
           <Item.Group>
