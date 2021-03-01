@@ -1,18 +1,57 @@
 import { Button, Divider, Form, Grid, Segment } from 'semantic-ui-react'
-import {Link} from 'react-router-dom'
+import {Link, useHistory} from 'react-router-dom'
+import { useState } from 'react';
 
-function Login() {
+function Login({setCurrentUser}) {
+
+  const [errors, setErrors] = useState([])
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const history = useHistory()
+
+  function handleLogin(e){
+    e.preventDefault()
+
+    const loginObject = {
+      username,
+      password
+    }
+
+    fetch('http://localhost:3000/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(loginObject)
+      })
+      .then(r=>r.json())
+      .then(data =>  { 
+        if (data.errors) { 
+          setErrors(data.errors)
+        } else { 
+          const { user, token } = data;
+          localStorage.setItem('token', token)
+          setCurrentUser(user)
+          history.push('/artists')
+        }
+
+
+    })};
+
+
     return (
 
       <Segment placeholder>
         <Grid columns={1} relaxed='very' stackable>
           <Grid.Column>
-            <Form>
+            <Form onSubmit={handleLogin}>
               <Form.Input
                 icon='user'
                 iconPosition='left'
                 label='Username'
                 placeholder='Username'
+                value = {username}
+                onChange={e=> setUsername(e.target.value)}
               />
               <Form.Input
                 icon='lock'
@@ -20,9 +59,13 @@ function Login() {
                 label='Password'
                 type='password'
                 placeholder='Password'
+                value={password}
+                onChange={e=> setPassword(e.target.value)}
               />
-             
-              <Button basic color='yellow' type='submit' as={Link} to='/artists'>Login</Button>
+             {errors.map(error => { 
+               return <p key={error}>{errors} </p>
+               })};
+              <Button basic color='yellow' type='submit'>Login</Button>
             </Form>
           </Grid.Column>
         

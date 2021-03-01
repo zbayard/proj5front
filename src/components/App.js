@@ -14,6 +14,24 @@ function App() {
 
   const [artists, setArtists] = useState([])
   const [search, setSearch] = useState('')
+  const [currentUser, setCurrentUser] = useState()
+
+
+  useEffect(() => {
+
+    const token = localStorage.getItem('token')
+    if (token) { 
+      fetch('http://localhost:3000/profile', { 
+        headers: { 
+          Authorization: `Bearer ${token}`,
+        } ,
+      })
+      .then( r => r.json())
+      .then(user => { 
+        setCurrentUser(user) 
+      });
+    };
+  },[]);
 
   
 
@@ -38,7 +56,7 @@ function App() {
 
     <>
     <div className="App">
-      <Header search={search} setSearch={setSearch}/>
+      <Header search={search} setCurrentUser={setCurrentUser} setSearch={setSearch}/>
      
 
       <Switch>
@@ -46,10 +64,10 @@ function App() {
             <UserProfile/>
         </Route>
         <Route exact path="/login">
-          <Login/>
+          <Login setCurrentUser={setCurrentUser}/>
         </Route>
         <Route exact path="/signup">
-          <SignUp/>
+          <SignUp setCurrentUser={setCurrentUser}/>
         </Route>
         <Route exact path="/artists">
           <ArtistList artists={filteredArtists}/>
