@@ -2,10 +2,10 @@ import BookingCard from "./BookingCard";
 
 import {Header} from 'semantic-ui-react'
 
-function BookingList({bookings}) {
+function BookingList({bookings, currentUser}) {
 
   const bookingCards = bookings.map(booking => {
-    return <BookingCard key={booking.id} booking={booking}/>
+    return <BookingCard key={booking.id} booking={booking} currentUser={currentUser}/>
   });
 
     return (

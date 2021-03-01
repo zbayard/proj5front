@@ -75,6 +75,12 @@ function ArtistPage({currentUser}) {
       setBookings([...bookings, newBooking])
     }
 
+    function deleteReview(id){
+
+      const updatedReviews = reviews.filter((review) => review.id !== id)
+      setReviews(updatedReviews)
+    }
+
     
       
     
@@ -120,15 +126,15 @@ function ArtistPage({currentUser}) {
               <p>{bio}</p>
               <Divider horizontal></Divider>
           <Button onClick={onBookingClick} basic color='black'>Book This Artist</Button>
-          {bookingClick ? <NewBooking handleNewBooking={handleNewBooking}/> : null}
+          {bookingClick ? <NewBooking handleNewBooking={handleNewBooking} currentUser={currentUser} id={id}/> : null}
 
           
         </Grid.Column>
           <Grid.Column width={4} className='artistpage' style={{overflow: 'auto', position: 'relative', maxHeight: 700, top: 40}}>
-            <BookingList id={id} bookings={filteredBookings}/>
+            <BookingList id={id} bookings={filteredBookings} currentUser={currentUser}/>
           </Grid.Column>
           <Grid.Column width={4} className='reviewlist'>
-            <ReviewList id={id} reviews={filteredReviews} handleNewReview={handleNewReview} currentUser={currentUser} />
+            <ReviewList id={id} reviews={filteredReviews} handleNewReview={handleNewReview} currentUser={currentUser} deleteReview={deleteReview} />
           </Grid.Column>
       </Grid>
       

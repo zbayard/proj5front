@@ -64,7 +64,7 @@ function Login({setCurrentUser}) {
               />
              {errors.map(error => { 
                return <p key={error}>{errors} </p>
-               })};
+               })}
               <Button basic color='yellow' type='submit'>Login</Button>
             </Form>
           </Grid.Column>

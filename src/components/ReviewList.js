@@ -1,15 +1,20 @@
-import React from 'react'
+import React,{useState} from 'react'
 import ReviewCard from "./ReviewCard";
 import NewReview from './NewReview.js';
 import {Header, Divider, Comment, Button, Rating} from 'semantic-ui-react'
 
 
-function ReviewList({id, reviews, handleNewReview, currentUser}) {
+function ReviewList({id, reviews, handleNewReview, currentUser, deleteReview}) {
     // const [avgRating, setAvgRating] = useState(0)
+    const [reviewClick, setReviewClick] = useState(false)
 
     const reviewCards = reviews.map(review => {
-        return <ReviewCard key={review.id} review={review} currentUser={currentUser}/>
+        return <ReviewCard key={review.id} review={review} currentUser={currentUser} deleteReview={deleteReview}/>
     });
+
+    function handleClick(){
+        setReviewClick(!reviewClick)
+    }
 
     
     
@@ -41,8 +46,8 @@ function ReviewList({id, reviews, handleNewReview, currentUser}) {
 
             <Divider horizontal />
 
-            <Button basic color='black'>Review This Artist</Button>
-            <NewReview handleNewReview={handleNewReview} currentUser={currentUser} id={id}/>
+            <Button onClick={handleClick} basic color='black'>Review This Artist</Button>
+            {reviewClick ? <NewReview handleNewReview={handleNewReview} currentUser={currentUser} id={id}/>: null}
         </Comment.Group>
       
     );

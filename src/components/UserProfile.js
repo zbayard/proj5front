@@ -1,16 +1,16 @@
 import {Card, Image} from 'semantic-ui-react'
 
-function UserProfile() {
+function UserProfile({currentUser}) {
     return (
       <Card centered>
-          <Image src="hello" alt='user pic' wrapped ui={false} />
+          <Image src={currentUser.image} alt='user pic' wrapped ui={false} />
           <Card.Content>
-            <Card.Header>name</Card.Header>
+            <Card.Header>{currentUser.name}</Card.Header>
               <Card.Meta>
-                <span className='username'>Username: username</span>
+                <span className='username'>Username: {currentUser.username}</span>
               </Card.Meta>
             <Card.Description>
-              bio
+              {currentUser.bio}
             </Card.Description>
           </Card.Content>
       </Card>

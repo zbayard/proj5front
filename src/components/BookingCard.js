@@ -1,6 +1,6 @@
 import {Divider, Item} from 'semantic-ui-react'
 
-function BookingCard({booking}) {
+function BookingCard({booking, currentUser}) {
 
 
     return (

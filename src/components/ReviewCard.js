@@ -1,6 +1,15 @@
 import {Comment, Rating, Button} from 'semantic-ui-react'
 
-function ReviewCard({review, currentUser}) {
+function ReviewCard({review, currentUser, deleteReview}) {
+
+  function handleDeleteClick(){
+
+    fetch(`http://localhost:3000/reviews/${review.id}`, {
+    method: 'DELETE'
+    })
+    deleteReview(review.id)
+    
+  }
 
   
 
@@ -15,7 +24,7 @@ function ReviewCard({review, currentUser}) {
               <Rating defaultRating={review.rating} maxRating={5} disabled />
             </p>
             <Comment.Actions>
-             {currentUser.id === review.user.id ? <Button basic color='yellow'>Delete</Button> : null}
+             {currentUser.id === review.user.id ? <Button onClick={handleDeleteClick} basic color='yellow'>Delete</Button> : null}
             </Comment.Actions>
           </Comment.Content>
         </Comment>

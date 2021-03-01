@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import {Form, Button, Divider, Segment} from 'semantic-ui-react'
 
 
-function NewBooking({handleNewBooking}) {
+function NewBooking({handleNewBooking, currentUser, id}) {
 
   const [address, setAddress] = useState('')
   const [city, setCity] = useState('')
@@ -15,8 +15,8 @@ function NewBooking({handleNewBooking}) {
     e.preventDefault()
 
     const newBooking = {
-      user_id: 1,
-      artist_id: 1,
+      user_id: currentUser.id,
+      artist_id: id,
       address,
       city,
       state,

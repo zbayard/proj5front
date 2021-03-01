@@ -61,7 +61,7 @@ function App() {
 
       <Switch>
         <Route exact path="/profile">
-            <UserProfile/>
+            <UserProfile currentUser={currentUser}/>
         </Route>
         <Route exact path="/login">
           <Login setCurrentUser={setCurrentUser}/>
