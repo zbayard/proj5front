@@ -81,6 +81,11 @@ function ArtistPage({currentUser}) {
       setReviews(updatedReviews)
     }
 
+    function handleDeletedBooking(id){
+      const updatedBookings = bookings.filter((booking) => booking.id !== id)
+      setBookings(updatedBookings)
+    }
+
     
       
     
@@ -131,7 +136,7 @@ function ArtistPage({currentUser}) {
           
         </Grid.Column>
           <Grid.Column width={4} className='artistpage' style={{overflow: 'auto', position: 'relative', maxHeight: 700, top: 40}}>
-            <BookingList id={id} bookings={filteredBookings} currentUser={currentUser}/>
+            <BookingList id={id} bookings={filteredBookings} currentUser={currentUser} handleDeletedBooking={handleDeletedBooking} />
           </Grid.Column>
           <Grid.Column width={4} className='reviewlist'>
             <ReviewList id={id} reviews={filteredReviews} handleNewReview={handleNewReview} currentUser={currentUser} deleteReview={deleteReview} />
