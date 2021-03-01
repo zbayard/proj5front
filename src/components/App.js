@@ -73,7 +73,7 @@ function App() {
           <ArtistList artists={filteredArtists}/>
         </Route>
         <Route path="/artists/:id">
-          <ArtistPage/>
+          <ArtistPage currentUser={currentUser}/>
         </Route>
       </Switch>
     </div>

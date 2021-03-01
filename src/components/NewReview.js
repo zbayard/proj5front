@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import {Form, Button, Rating} from 'semantic-ui-react'
 
-function NewReview({handleNewReview}) {
+function NewReview({handleNewReview, currentUser, id}) {
 
   const [rating, setRating] = useState(0)
   const [comment, setComment] = useState("")
@@ -11,8 +11,8 @@ function NewReview({handleNewReview}) {
     e.preventDefault()
 
     const newReview ={
-      user_id: 1,
-      artist_id: 1,
+      user_id: currentUser.id,
+      artist_id: id,
       rating: parseInt(rating),
       comment
     }

@@ -1,6 +1,6 @@
-import {Comment, Rating} from 'semantic-ui-react'
+import {Comment, Rating, Button} from 'semantic-ui-react'
 
-function ReviewCard({review}) {
+function ReviewCard({review, currentUser}) {
 
   
 
@@ -15,8 +15,7 @@ function ReviewCard({review}) {
               <Rating defaultRating={review.rating} maxRating={5} disabled />
             </p>
             <Comment.Actions>
-              {/* <Button size='mini' basic color='black'> ♥️ </Button>
-              <Button size='mini' basic color='black'> ✖︎ </Button> */}
+             {currentUser.id === review.user.id ? <Button basic color='yellow'>Delete</Button> : null}
             </Comment.Actions>
           </Comment.Content>
         </Comment>

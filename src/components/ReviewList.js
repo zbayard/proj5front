@@ -4,11 +4,11 @@ import NewReview from './NewReview.js';
 import {Header, Divider, Comment, Button, Rating} from 'semantic-ui-react'
 
 
-function ReviewList({id, reviews, handleNewReview}) {
+function ReviewList({id, reviews, handleNewReview, currentUser}) {
     // const [avgRating, setAvgRating] = useState(0)
 
     const reviewCards = reviews.map(review => {
-        return <ReviewCard key={review.id} review={review}/>
+        return <ReviewCard key={review.id} review={review} currentUser={currentUser}/>
     });
 
     
@@ -42,7 +42,7 @@ function ReviewList({id, reviews, handleNewReview}) {
             <Divider horizontal />
 
             <Button basic color='black'>Review This Artist</Button>
-            <NewReview handleNewReview={handleNewReview}/>
+            <NewReview handleNewReview={handleNewReview} currentUser={currentUser} id={id}/>
         </Comment.Group>
       
     );

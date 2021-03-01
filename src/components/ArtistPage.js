@@ -9,7 +9,7 @@ import ReactPlayer from 'react-player'
 
 
 
-function ArtistPage() {
+function ArtistPage({currentUser}) {
 
   const [artist, setArtist] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -128,7 +128,7 @@ function ArtistPage() {
             <BookingList id={id} bookings={filteredBookings}/>
           </Grid.Column>
           <Grid.Column width={4} className='reviewlist'>
-            <ReviewList id={id} reviews={filteredReviews} handleNewReview={handleNewReview} />
+            <ReviewList id={id} reviews={filteredReviews} handleNewReview={handleNewReview} currentUser={currentUser} />
           </Grid.Column>
       </Grid>
       
