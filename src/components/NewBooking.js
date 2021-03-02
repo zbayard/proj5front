@@ -1,8 +1,8 @@
 import React,{useState} from 'react';
-import {Form, Button, Divider, Segment} from 'semantic-ui-react'
+import {Form, Button, Divider, Segment, Header} from 'semantic-ui-react'
 
 
-function NewBooking({handleNewBooking, currentUser, id}) {
+function NewBooking({handleNewBooking, currentUser, id, setOpen}) {
 
   const [address, setAddress] = useState('')
   const [city, setCity] = useState('')
@@ -11,6 +11,8 @@ function NewBooking({handleNewBooking, currentUser, id}) {
   const [start, setStart] = useState('')
   const [end, setEnd] = useState('')
 
+  console.log("start", start)
+  console.log("end", end)
   function handleBooking(e){
     e.preventDefault()
 
@@ -21,8 +23,8 @@ function NewBooking({handleNewBooking, currentUser, id}) {
       city,
       state,
       date,
-      start,
-      end,
+      start_time: start,
+      end_time: end,
       payment: 100
     }
 
@@ -38,12 +40,14 @@ function NewBooking({handleNewBooking, currentUser, id}) {
         handleNewBooking(bookingToAdd)
     })
 
+    setOpen(false)
   }
 
     return (
       <div className="NewBooking">
-        <h2>NewBooking</h2>
+        
         <Segment inverted>
+          <Header>New Booking</Header>
           <Form onSubmit={handleBooking} inverted>
               <Divider horizontal></Divider>
               <Form.Input value={address} onChange={e=> setAddress(e.target.value)}type='text' name='address' placeholder='address'/>

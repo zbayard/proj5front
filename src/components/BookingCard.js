@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {Divider, Item, Button, Modal, Segment, Form} from 'semantic-ui-react'
+import {Divider, Item, Button, Modal, Segment, Form, Header} from 'semantic-ui-react'
 
 function BookingCard({booking, currentUser, handleDeletedBooking}) {
 
@@ -70,11 +70,11 @@ function BookingCard({booking, currentUser, handleDeletedBooking}) {
               <Divider horizontal />
               <Item.Header>{booking.user.username}</Item.Header>
             <Item.Content text align='left'>
-                <Item.Header as='a'>{address} {city}, {state}</Item.Header>
+                <Item.Header as='a'> {city}, {state}</Item.Header>
                 <Item.Meta>{date} </Item.Meta>
               <Item.Description>
                   Start Time: {start} End Time: {end}
-                <Item.Extra> Total Compensation: ${booking.payment}</Item.Extra>
+                <Item.Extra>{address}</Item.Extra>
               
               </Item.Description>
               
@@ -89,6 +89,7 @@ function BookingCard({booking, currentUser, handleDeletedBooking}) {
           size='small'
           trigger={currentUser.id === booking.user.id ? <Button basic color='black'>Update/Cancel Booking</Button> : null}>
             <Segment inverted>
+              <Header>Update {currentUser.name}'s Booking</Header>
           <Form onSubmit={updateBooking} inverted>
               <Divider horizontal></Divider>
               <Form.Input value={address} onChange={e=> setAddress(e.target.value)}type='text' name='address' placeholder={booking.address}/>

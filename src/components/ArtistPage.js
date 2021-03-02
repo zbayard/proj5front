@@ -3,7 +3,7 @@ import {useParams} from 'react-router-dom'
 import ReviewList from './ReviewList.js';
 import BookingList from "./BookingList";
 import NewBooking from "./NewBooking.js"
-import {Grid, Button, Divider, Item, List} from 'semantic-ui-react'
+import {Grid, Button, Divider, Item, List, Modal} from 'semantic-ui-react'
 import ReactPlayer from 'react-player'
 
 
@@ -15,7 +15,7 @@ function ArtistPage({currentUser}) {
   const [isLoaded, setIsLoaded] = useState(false);
   const [reviews, setReviews] = useState([])
   const [bookings, setBookings] = useState([])
-  const [bookingClick, setBookingClick] = useState(false)
+  const [open, setOpen] = useState(false)
 
   const {id} = useParams();
 
@@ -67,9 +67,7 @@ function ArtistPage({currentUser}) {
       setReviews([...reviews, newReview])
     }
 
-    function onBookingClick(){
-      setBookingClick(!bookingClick)
-    }
+    
 
     function handleNewBooking(newBooking){
       setBookings([...bookings, newBooking])
@@ -130,8 +128,15 @@ function ArtistPage({currentUser}) {
           <Item.Header>Bio</Item.Header>
               <p>{bio}</p>
               <Divider horizontal></Divider>
-          <Button onClick={onBookingClick} basic color='black'>Book This Artist</Button>
-          {bookingClick ? <NewBooking handleNewBooking={handleNewBooking} currentUser={currentUser} id={id}/> : null}
+          
+          <Modal basic
+          onClose={() => setOpen(false)}
+          onOpen={() => setOpen(true)}
+          open={open}
+          size='small'
+          trigger={<Button basic color='black'>Book This Artist</Button>}>
+          <NewBooking handleNewBooking={handleNewBooking} currentUser={currentUser} id={id} setOpen={setOpen}/>
+          </Modal>
 
           
         </Grid.Column>
