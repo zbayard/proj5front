@@ -130,12 +130,12 @@ function ArtistPage({currentUser}) {
               <Divider horizontal></Divider>
           
           <Modal basic
-          onClose={() => setOpen(false)}
-          onOpen={() => setOpen(true)}
-          open={open}
-          size='small'
-          trigger={<Button basic color='black'>Book This Artist</Button>}>
-          <NewBooking handleNewBooking={handleNewBooking} currentUser={currentUser} id={id} setOpen={setOpen}/>
+            onClose={() => setOpen(false)}
+            onOpen={() => setOpen(true)}
+            open={open}
+            size='small'
+            trigger={<Button basic color='black'>Book This Artist</Button>}>
+            <NewBooking handleNewBooking={handleNewBooking} currentUser={currentUser} id={id} setOpen={setOpen}/>
           </Modal>
 
           
