@@ -1,8 +1,19 @@
 import React,{useState} from 'react';
 import {Link, useHistory} from 'react-router-dom';
-import {Button, Menu, Segment, Input} from 'semantic-ui-react';
+import {Button, Menu, Segment, Input, Select} from 'semantic-ui-react';
 
-function NavBar({setCurrentUser}) {
+function NavBar({setCurrentUser, search, setSearch, setFilterBy}) {
+
+  const artistTypeOptions = [
+    {key: 'all', value: 'all', text: 'all'},
+    {key: 'solo artist', value: 'solo artist', text: 'solo artist'},
+    {key: 'band/duo', value: 'band/duo', text: 'band/duo'},
+    {key: 'dj', value: 'dj', text: 'dj'}
+  ]
+
+  function handleFilterChange(e){
+    setFilterBy(e.target.innerText)
+  }
 
   const [activeItem, setActiveItem] = useState('home')
 
@@ -65,11 +76,11 @@ function NavBar({setCurrentUser}) {
             onClick={handleLogOut}
           />
           <Menu.Item position='right'>
-            <Input
-            action={{ type: 'submit', content: 'Go' }}
-            placeholder='Navigate to...'
-          />
+            <Input value={search} placeholder='search by artist' onChange={e => setSearch(e.target.value)}
+            />
           </Menu.Item>
+            <Select onChange={handleFilterChange} placeholder="select by artist type" options={artistTypeOptions}
+            />
           
         </Menu>
       </Segment>
@@ -85,15 +96,3 @@ function NavBar({setCurrentUser}) {
   
 
 
-{/* <nav className="NavBar">
-       
-       <>
-         <Button inverted color='black' as={Link} to="/artists"> Artists </Button>
-         <Button inverted color='black' as={Link} to="/profile"> Profile </Button>
-         <Button inverted color='black' as={Link} to='/login'> Login </Button>
-         <Button inverted color='black' as={Link} to='/signup'>Sign Up</Button>
-         <Button inverted color='black' onClick={handleLogOut}>Log Out</Button>
-       </>
-     
-     
-   </nav> */}
