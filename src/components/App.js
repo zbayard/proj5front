@@ -3,6 +3,7 @@ import {Switch, Route} from 'react-router-dom'
 
 import '../App.css';
 import Header from './Header.js';
+import HomePage from './HomePage.js';
 import UserProfile from './UserProfile.js';
 import ArtistPage from './ArtistPage.js';
 import Login from './Login.js';
@@ -70,6 +71,9 @@ function App() {
      
 
       <Switch>
+        <Route exact path='/'>
+            <HomePage currentUser={currentUser}/>
+        </Route>
         <Route exact path="/profile">
             <UserProfile currentUser={currentUser}/>
         </Route>
