@@ -56,7 +56,7 @@ function SignUp({setCurrentUser}) {
     <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
       <Grid.Column style={{ maxWidth: 450 }}>
         <Header as='h2' color='black' textAlign='center'>
-          <Image src='/logo.png' /> Log-in to your account
+          <Image src='/logo.png' /> Sign Up Form
         </Header>
           <Form onSubmit={handleSignUp} size='large'>
             <Segment stacked>
@@ -106,7 +106,7 @@ function SignUp({setCurrentUser}) {
             <Form.Input
               icon='vcard'
               iconPosition='left'
-              label='state'
+              label='State'
               value={state}
               onChange={e=> setState(e.target.value)}
             />

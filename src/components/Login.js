@@ -92,40 +92,4 @@ function Login({setCurrentUser}) {
 
 
 
-  // <Segment placeholder>
-  //       <Grid columns={1} relaxed='very' stackable>
-  //         <Grid.Column>
-  //           <Form onSubmit={handleLogin}>
-  //             <Form.Input
-  //               icon='user'
-  //               iconPosition='left'
-  //               label='Username'
-  //               placeholder='Username'
-  //               value = {username}
-  //               onChange={e=> setUsername(e.target.value)}
-  //             />
-  //             <Form.Input
-  //               icon='lock'
-  //               iconPosition='left'
-  //               label='Password'
-  //               type='password'
-  //               placeholder='Password'
-  //               value={password}
-  //               onChange={e=> setPassword(e.target.value)}
-  //             />
-  //            {errors.map(error => { 
-  //              return <p key={error}>{errors} </p>
-  //              })}
-  //             <Button basic color='yellow' type='submit'>Login</Button>
-  //           </Form>
-  //         </Grid.Column>
-        
-  //       <Divider horizontal></Divider>
-        
-  //         <Grid.Column verticalAlign='middle'>
-            
-  //           Don't have an account? <Link to='/signup'>Sign Up</Link>
-  //         </Grid.Column>
-  //       </Grid>
-      
-  //     </Segment> 
+  
