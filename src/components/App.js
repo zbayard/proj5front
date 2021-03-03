@@ -67,7 +67,7 @@ function App() {
 
     <>
     <div className="App">
-      <Header search={search} setCurrentUser={setCurrentUser} setSearch={setSearch} setFilterBy={setFilterBy}/>
+      <Header search={search} currentUser={currentUser} setCurrentUser={setCurrentUser} setSearch={setSearch} setFilterBy={setFilterBy}/>
      
 
       <Switch>

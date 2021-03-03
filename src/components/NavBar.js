@@ -2,7 +2,7 @@ import React,{useState} from 'react';
 import {Link, useHistory} from 'react-router-dom';
 import {Button, Menu, Segment, Input, Select} from 'semantic-ui-react';
 
-function NavBar({setCurrentUser, search, setSearch, setFilterBy}) {
+function NavBar({currentUser, setCurrentUser, search, setSearch, setFilterBy}) {
 
   const artistTypeOptions = [
     {key: 'all', value: 'all', text: 'all'},

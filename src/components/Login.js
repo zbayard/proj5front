@@ -1,4 +1,4 @@
-import { Button, Divider, Form, Grid, Segment } from 'semantic-ui-react'
+import { Button, Divider, Form, Grid, Segment, Header, Image, Message } from 'semantic-ui-react'
 import {Link, useHistory} from 'react-router-dom'
 import { useState } from 'react';
 
@@ -41,45 +41,91 @@ function Login({setCurrentUser}) {
 
     return (
 
-      <Segment placeholder>
-        <Grid columns={1} relaxed='very' stackable>
-          <Grid.Column>
-            <Form onSubmit={handleLogin}>
-              <Form.Input
-                icon='user'
-                iconPosition='left'
+      <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+    <Grid.Column style={{ maxWidth: 450 }}>
+      <Header as='h2' color='black' textAlign='center'>
+        <Image src='/logo.png' /> Log-in to your account
+      </Header>
+      <Form onSubmit={handleLogin} size='large'>
+        <Segment stacked>
+          <Form.Input 
+                fluid icon='user' 
+                iconPosition='left' 
                 label='Username'
                 placeholder='Username'
                 value = {username}
                 onChange={e=> setUsername(e.target.value)}
-              />
-              <Form.Input
-                icon='lock'
-                iconPosition='left'
-                label='Password'
-                type='password'
-                placeholder='Password'
-                value={password}
-                onChange={e=> setPassword(e.target.value)}
-              />
-             {errors.map(error => { 
-               return <p key={error}>{errors} </p>
-               })}
-              <Button basic color='yellow' type='submit'>Login</Button>
-            </Form>
-          </Grid.Column>
-        
-        <Divider horizontal></Divider>
-        
-          <Grid.Column verticalAlign='middle'>
-            
-            Don't have an account? <Link to='/signup'>Sign Up</Link>
-          </Grid.Column>
-        </Grid>
+          />
+          <Form.Input
+            fluid
+            icon='lock'
+            iconPosition='left'
+            label='Password'
+            type='password'
+            placeholder='Password'
+            value={password}
+            onChange={e=> setPassword(e.target.value)}
+          />
+          {errors.map(error => {
+            return <p key={error}>{errors} </p>
+          })}
+          
+
+          <Button type='submit' color='purple' fluid size='large'>
+            Login
+          </Button>
+        </Segment>
+      </Form>
+      <Message>
+        New to us? <Link to='/signup'>Sign Up</Link>
+      </Message>
+    </Grid.Column>
+  </Grid>
+
       
-      </Segment> 
      
     );
   }
   
   export default Login;
+
+
+
+
+  // <Segment placeholder>
+  //       <Grid columns={1} relaxed='very' stackable>
+  //         <Grid.Column>
+  //           <Form onSubmit={handleLogin}>
+  //             <Form.Input
+  //               icon='user'
+  //               iconPosition='left'
+  //               label='Username'
+  //               placeholder='Username'
+  //               value = {username}
+  //               onChange={e=> setUsername(e.target.value)}
+  //             />
+  //             <Form.Input
+  //               icon='lock'
+  //               iconPosition='left'
+  //               label='Password'
+  //               type='password'
+  //               placeholder='Password'
+  //               value={password}
+  //               onChange={e=> setPassword(e.target.value)}
+  //             />
+  //            {errors.map(error => { 
+  //              return <p key={error}>{errors} </p>
+  //              })}
+  //             <Button basic color='yellow' type='submit'>Login</Button>
+  //           </Form>
+  //         </Grid.Column>
+        
+  //       <Divider horizontal></Divider>
+        
+  //         <Grid.Column verticalAlign='middle'>
+            
+  //           Don't have an account? <Link to='/signup'>Sign Up</Link>
+  //         </Grid.Column>
+  //       </Grid>
+      
+  //     </Segment> 

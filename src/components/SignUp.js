@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import { Form, Grid, Segment, Divider, Button } from 'semantic-ui-react'
+import { Form, Grid, Segment, Divider, Button, Header, Image, Message } from 'semantic-ui-react'
 import { Link, useHistory } from 'react-router-dom'
 
 function SignUp({setCurrentUser}) {
@@ -53,75 +53,97 @@ function SignUp({setCurrentUser}) {
 
     return (
 
-      <Segment placeholder>
-        <Grid columns={1} relaxed='very' stackable>
-          <Grid.Column>
-            <Form onSubmit={handleSignUp}>
-              <Form.Input
+    <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+      <Grid.Column style={{ maxWidth: 450 }}>
+        <Header as='h2' color='black' textAlign='center'>
+          <Image src='/logo.png' /> Log-in to your account
+        </Header>
+          <Form onSubmit={handleSignUp} size='large'>
+            <Segment stacked>
+            <Form.Input
               icon='user'
               iconPosition='left'
               label='Name'
               value={name}
               onChange={e=> setName(e.target.value)}
-              />
-              <Form.Input
+            />
+            <Form.Input
               icon='user'
               iconPosition='left'
               label='Username'
               value={username}
               onChange={e=> setUsername(e.target.value)}
-              />
-              <Form.Input
+            />
+            <Form.Input
               icon='lock'
               iconPosition='left'
               label='Password'
               type='text'
               value={password}
               onChange={e=> setPassword(e.target.value)}
-              />
-              <Form.Input
+            />
+            <Form.Input
               icon='images'
               iconPosition='left'
               label='Image'
               value={image}
               onChange={e=> setImage(e.target.value)}
-              />
-              <Form.Input
+            />
+            <Form.Input
               icon='vcard'
               iconPosition='left'
               label='Bio'
               value={bio}
               onChange={e=> setBio(e.target.value)}
-              />
-              <Form.Input
+            />
+            <Form.Input
               icon='vcard'
               iconPosition='left'
               label='City'
               value={city}
               onChange={e=> setCity(e.target.value)}
-              />
-              <Form.Input
+            />
+            <Form.Input
               icon='vcard'
               iconPosition='left'
               label='state'
               value={state}
               onChange={e=> setState(e.target.value)}
-              />
-              {errors.map(error => { 
-               return <p key={error}>{errors} </p>
-               })};
-              <Button basic color='yellow' type='submit'>Sign Up!</Button>
-            </Form>
-          </Grid.Column>
-              <Divider horizontal></Divider>
-  
-          <Grid.Column verticalAlign='middle'>
-            Already have an account? <Link to='/login'>Sign In</Link>
-          </Grid.Column>
-        </Grid>
-      </Segment>
+            />
+            {errors.map(error => { 
+              return <p key={error}>{errors} </p>
+            })}
+              
+              
+              
+
+              <Button type='submit' color='purple' fluid size='large'>
+                Create Account
+              </Button>
+            </Segment>
+          </Form>
+        <Message>
+          Already have an account? <Link to='/login'>Log In</Link>
+        </Message>
+      </Grid.Column>
+    </Grid>
+
+      
       
     );
   }
   
   export default SignUp;
+
+
+
+
+
+  
+
+
+
+
+
+
+
