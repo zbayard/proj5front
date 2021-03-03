@@ -15,6 +15,7 @@ function App() {
   const [artists, setArtists] = useState([])
   const [search, setSearch] = useState('')
   const [currentUser, setCurrentUser] = useState()
+  const [filterBy, setFilterBy] = useState('all')
 
 
   useEffect(() => {
@@ -43,6 +44,15 @@ function App() {
 
 
     const filteredArtists = artists.filter(artist => artist.name.toLowerCase().includes(search.toLocaleLowerCase()))
+
+    const sortedArtists = filteredArtists.filter(artist => {
+      if(filterBy === 'all'){
+        return true
+      }else{
+        return artist.type === filterBy
+      }
+    })
+
     
 
     
@@ -56,7 +66,7 @@ function App() {
 
     <>
     <div className="App">
-      <Header search={search} setCurrentUser={setCurrentUser} setSearch={setSearch}/>
+      <Header search={search} setCurrentUser={setCurrentUser} setSearch={setSearch} setFilterBy={setFilterBy}/>
      
 
       <Switch>
@@ -70,7 +80,7 @@ function App() {
           <SignUp setCurrentUser={setCurrentUser}/>
         </Route>
         <Route exact path="/artists">
-          <ArtistList artists={filteredArtists}/>
+          <ArtistList artists={sortedArtists}/>
         </Route>
         <Route path="/artists/:id">
           <ArtistPage currentUser={currentUser}/>
