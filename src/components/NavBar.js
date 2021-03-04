@@ -25,62 +25,71 @@ function NavBar({currentUser, setCurrentUser, search, setSearch, setFilterBy}) {
         history.push('/login')
     }
 
-    function handleClick(){
-      setActiveItem(activeItem)
+    function handleClick(e, {name}){
+      setActiveItem({name}.name)
+      
     }
+
+   
 
     return (
 
       <Segment inverted>
         <Menu inverted secondary>
-          <Menu.Item
-            as={Link}
-            to='/'
-            name='home'
-            active={activeItem === 'home'}
-            onClick={handleClick}
-          />
-          <Menu.Item
-            as={Link}
-            to='/artists'
-            name='artists'
-            active={activeItem === 'artists'}
-            onClick={handleClick}
-          />
-          <Menu.Item
-            as={Link}
-            to='/profile'
-            name='profile'
-            active={activeItem === 'profile'}
-            onClick={handleClick}
-          />
-          <Menu.Item
-            as={Link}
-            to='/login'
-            name='login'
-            active={activeItem === 'login'}
-            onClick={handleClick}
-          />
-          <Menu.Item
-            as={Link}
-            to='/signup'
-            name='signup'
-            active={activeItem === 'signup'}
-            onClick={handleClick}
-          />
-          <Menu.Item
-            as={Link}
-            to='/'
-            name='logout'
-            active={activeItem === 'logout'}
-            onClick={handleLogOut}
-          />
-          <Menu.Item position='right'>
-            <Input value={search} placeholder='search by artist' onChange={e => setSearch(e.target.value)}
+          {currentUser ? 
+          (<>
+            <Menu.Item
+              as={Link}
+              to='/'
+              name='home'
+              active={activeItem === 'home'}
+              onClick={handleClick}
             />
-          </Menu.Item>
-            <Select onChange={handleFilterChange} placeholder="select by artist type" options={artistTypeOptions}
+            <Menu.Item
+              as={Link}
+              to='/artists'
+              name='artists'
+              active={activeItem === 'artists'}
+              onClick={handleClick}
             />
+            <Menu.Item
+              as={Link}
+              to='/profile'
+              name='profile'
+              active={activeItem === 'profile'}
+              onClick={handleClick}
+            />
+            <Menu.Item
+              as={Link}
+              to='/'
+              name='logout'
+              active={activeItem === 'logout'}
+              onClick={handleLogOut}
+            />
+            <Menu.Item position='right'>
+              <Input value={search} placeholder='search by artist' onChange={e => setSearch(e.target.value)}
+              />
+            </Menu.Item>
+              <Select onChange={handleFilterChange} placeholder="select by artist type" options={artistTypeOptions}
+              />
+          </>) : (
+          <>
+            <Menu.Item
+              as={Link}
+              to='/login'
+              name='login'
+              active={activeItem === 'login'}
+              onClick={handleClick}
+            />
+            <Menu.Item
+              as={Link}
+              to='/signup'
+              name='signup'
+              active={activeItem === 'signup'}
+              onClick={handleClick}
+            />
+          </>
+        )}
           
         </Menu>
       </Segment>
