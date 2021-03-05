@@ -3,7 +3,7 @@ import {useParams} from 'react-router-dom'
 import ReviewList from './ReviewList.js';
 import BookingList from "./BookingList";
 import NewBooking from "./NewBooking.js"
-import {Grid, Button, Divider, Item, List, Modal} from 'semantic-ui-react'
+import {Grid, Button, Divider, Item, List, Modal, Icon, Card, Header, Image} from 'semantic-ui-react'
 import ReactPlayer from 'react-player'
 
 
@@ -92,43 +92,41 @@ function ArtistPage({currentUser}) {
 
       const {name, image, bio, type, genre, ig, youtube, spotify, soundcloud, facebook, website, rate, feature, likes} = artist;
 
-      function addLike(){
-        
-      }
+      
 
 
     return (
 
       <Grid >
         <Grid.Column width={8} className='artist' border>
-          <h1>{name}</h1>
+          <Header size='huge' align='center'>{name}</Header>
           <img src={image} alt={name}/>
           <Divider horizontal></Divider>
-          <Button onClick={addLike} size='mini' basic color='black'>{likes} ♥️ </Button>
-          <List text align="left">
-            <List.Item icon='spotify' content={<a rel="noreferrer" target="_blank" href={spotify}>spotify</a>}/>
-            <List.Item icon='soundcloud' content={<a rel="noreferrer" target="_blank" href={soundcloud}>soundcloud</a>}/>
-            <List.Item icon='instagram' content={<a rel="noreferrer" target="_blank" href={ig}>instagram</a>}/>
-            <List.Item icon='youtube' content={<a rel="noreferrer" target="_blank" href={youtube}>youtube</a>}/>
-            <List.Item icon='facebook square' content={<a rel="noreferrer" target="_blank" href={facebook}>facebook</a>}/>
-            <List.Item icon='linkify' content={<a rel="noreferrer" target="_blank" href={website}>website</a>}/>
+          <List horizontal size='massive' align="center">
+            <List.Item icon='spotify' as='a' target='_blank' href={spotify} />
+            <List.Item icon='soundcloud' as='a' target='_blank' href={soundcloud} />
+            <List.Item icon='instagram' as='a' target='_blank' href={ig} />
+            <List.Item icon='youtube' as='a' target='_blank' href={youtube} />
+            <List.Item icon='facebook square' as='a' target='_blank' href={facebook} />
+            <List.Item icon='linkify' as='a' target='_blank' href={website} />
           </List>
-          
-          <Item.Group>
-            <Item>
-              <Item.Content text align='center'>
-                  <Item.Header as='a'>{type}</Item.Header>
-                  <Item.Meta>Rate/hr: ${rate} </Item.Meta>
-                  <Item.Description>Genre: {genre}</Item.Description>
-                  <Item.Header>Featured Video</Item.Header>
-                  <ReactPlayer url={feature}/>
-              </Item.Content>
-            </Item>
-          </Item.Group>
-          <Item.Header>Bio</Item.Header>
-              <p>{bio}</p>
-              <Divider horizontal></Divider>
-          
+          <Divider horizontal></Divider>
+          <Card fluid color='black'>
+            <Card.Content >
+              <Card.Header id='artistName'>Featured Content</Card.Header>
+                <Card.Meta align='center'>
+                <ReactPlayer url={feature}/>
+                </Card.Meta>
+                  <Card.Description>
+                    {bio}
+                  </Card.Description>
+            </Card.Content>
+              <Card.Content extra>
+           
+              <Icon name='music' />
+              {genre} {type}
+              <p>${rate}/hour</p>
+            
           <Modal basic
             onClose={() => setOpen(false)}
             onOpen={() => setOpen(true)}
@@ -137,13 +135,16 @@ function ArtistPage({currentUser}) {
             trigger={<Button basic color='black'>Book This Artist</Button>}>
             <NewBooking handleNewBooking={handleNewBooking} currentUser={currentUser} id={id} setOpen={setOpen}/>
           </Modal>
+              </Card.Content>
+            </Card>
+          
 
           
         </Grid.Column>
           <Grid.Column width={4} className='artistpage' style={{overflow: 'auto', position: 'relative', maxHeight: 700, top: 40}}>
             <BookingList id={id} bookings={filteredBookings} currentUser={currentUser} handleDeletedBooking={handleDeletedBooking} />
           </Grid.Column>
-          <Grid.Column width={4} className='reviewlist'>
+          <Grid.Column width={4} className='reviewlist' style={{overflow: 'auto', position: 'relative', maxHeight: 700, top: 40}}>
             <ReviewList id={id} reviews={filteredReviews} handleNewReview={handleNewReview} currentUser={currentUser} deleteReview={deleteReview} />
           </Grid.Column>
       </Grid>
@@ -152,6 +153,10 @@ function ArtistPage({currentUser}) {
   }
   
   export default ArtistPage;
+
+
+
+
 
 
 

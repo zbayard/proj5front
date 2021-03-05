@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import { Form, Grid, Segment, Divider, Button, Header, Image, Message } from 'semantic-ui-react'
-import { Link, useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom';
+import logomain from '../logos/black.png';
 
 function SignUp({setCurrentUser}) {
 
@@ -56,7 +57,7 @@ function SignUp({setCurrentUser}) {
     <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
       <Grid.Column style={{ maxWidth: 450 }}>
         <Header as='h2' color='black' textAlign='center'>
-          <Image src='/logo.png' /> Sign Up Form
+          <Image src={logomain} /> Sign Up Form
         </Header>
           <Form onSubmit={handleSignUp} size='large'>
             <Segment stacked>

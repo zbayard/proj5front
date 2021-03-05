@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
-import {Divider, Item, Button, Modal, Segment, Form, Header} from 'semantic-ui-react'
+import {Divider, Item, Button, Modal, Segment, Form, Header, Image} from 'semantic-ui-react'
+import logomain from '../logos/purple.png';
 
 function BookingCard({booking, currentUser, handleDeletedBooking}) {
 
@@ -89,7 +90,9 @@ function BookingCard({booking, currentUser, handleDeletedBooking}) {
           size='small'
           trigger={currentUser.id === booking.user.id ? <Button basic color='black'>Update/Cancel Booking</Button> : null}>
             <Segment inverted>
-              <Header>Update {currentUser.name}'s Booking</Header>
+              <Header as='h2' color='black' textAlign='center'>
+                <Image src={logomain} /> Update {currentUser.name}'s Booking
+              </Header>
           <Form onSubmit={updateBooking} inverted>
               <Divider horizontal></Divider>
               <Form.Input value={address} onChange={e=> setAddress(e.target.value)}type='text' name='address' placeholder={booking.address}/>

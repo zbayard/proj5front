@@ -1,6 +1,7 @@
 import { Button, Divider, Form, Grid, Segment, Header, Image, Message } from 'semantic-ui-react'
 import {Link, useHistory} from 'react-router-dom'
 import { useState } from 'react';
+import logomain from '../logos/black.png';
 
 function Login({setCurrentUser}) {
 
@@ -44,7 +45,7 @@ function Login({setCurrentUser}) {
       <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
     <Grid.Column style={{ maxWidth: 450 }}>
       <Header as='h2' color='black' textAlign='center'>
-        <Image src='/logo.png' /> Log-in to your account
+        <Image src={logomain} /> Log-in to your account
       </Header>
       <Form onSubmit={handleLogin} size='large'>
         <Segment stacked>

@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
-import {Form, Button, Divider, Segment, Header} from 'semantic-ui-react'
-
+import {Form, Button, Divider, Segment, Header, Image} from 'semantic-ui-react';
+import logomain from '../logos/purple.png';
 
 function NewBooking({handleNewBooking, currentUser, id, setOpen}) {
 
@@ -47,7 +47,9 @@ function NewBooking({handleNewBooking, currentUser, id, setOpen}) {
       <div className="NewBooking">
         
         <Segment inverted>
-          <Header>New Booking</Header>
+          <Header as='h2' color='black' textAlign='center'>
+            <Image src={logomain} /> New Booking
+          </Header>
           <Form onSubmit={handleBooking} inverted>
               <Divider horizontal></Divider>
               <Form.Input value={address} onChange={e=> setAddress(e.target.value)}type='text' name='address' placeholder='address'/>

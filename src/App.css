@@ -21,6 +21,11 @@
   background-color: rgb(0,0,0)
 }
 
+.main-logo{
+  height: 200px;
+  width: 200px;
+}
+
 img{
   height: 300px;
   width: 300px;

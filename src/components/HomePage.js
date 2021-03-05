@@ -13,8 +13,9 @@ import {
     Segment,
     Sidebar,
     Visibility,
-  } from 'semantic-ui-react'
-
+  } from 'semantic-ui-react';
+  
+  import logomain from '../logos/logo.png';
 
 
 function HomePage(){
@@ -28,7 +29,7 @@ function HomePage(){
         <Container text>
         <Header
           as='h1'
-          content='My App'
+          content='Welcome to gig bag!'
           inverted
           style={{
             fontSize: '4em',
