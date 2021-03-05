@@ -111,7 +111,8 @@ function ArtistPage({currentUser}) {
             <List.Item icon='linkify' as='a' target='_blank' href={website} />
           </List>
           <Divider horizontal></Divider>
-          <Card fluid color='black'>
+          
+          <Card  fluid color='purple' style={{color: '#1b1c1d' }}>
             <Card.Content >
               <Card.Header id='artistName'>Featured Content</Card.Header>
                 <Card.Meta align='center'>
@@ -127,16 +128,17 @@ function ArtistPage({currentUser}) {
               {genre} {type}
               <p>${rate}/hour</p>
             
-          <Modal basic
-            onClose={() => setOpen(false)}
-            onOpen={() => setOpen(true)}
-            open={open}
-            size='small'
-            trigger={<Button basic color='black'>Book This Artist</Button>}>
-            <NewBooking handleNewBooking={handleNewBooking} currentUser={currentUser} id={id} setOpen={setOpen}/>
-          </Modal>
-              </Card.Content>
-            </Card>
+              <Modal basic
+                onClose={() => setOpen(false)}
+                onOpen={() => setOpen(true)}
+                open={open}
+                size='small'
+                trigger={<Button basic color='black'>Book This Artist</Button>}>
+                <NewBooking handleNewBooking={handleNewBooking} currentUser={currentUser} id={id} setOpen={setOpen}/>
+              </Modal>
+            </Card.Content>
+          </Card>
+        
           
 
           

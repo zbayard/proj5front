@@ -74,8 +74,8 @@ function BookingCard({booking, currentUser, handleDeletedBooking}) {
                 <Item.Header as='a'> {city}, {state}</Item.Header>
                 <Item.Meta>{date} </Item.Meta>
               <Item.Description>
-                  Start Time: {start} End Time: {end}
-                <Item.Extra>{address}</Item.Extra>
+                  {address}
+                <Item.Extra>Start Time: {start} End Time: {end}</Item.Extra>
               
               </Item.Description>
               
