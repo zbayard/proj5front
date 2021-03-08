@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import {Form, Button, Rating} from 'semantic-ui-react'
 
-function NewReview({handleNewReview, currentUser, id}) {
+function NewReview({handleNewReview, currentUser, id, setReviewClick}) {
 
   const [rating, setRating] = useState(0)
   const [comment, setComment] = useState("")
@@ -28,6 +28,8 @@ function NewReview({handleNewReview, currentUser, id}) {
       .then(reviewToAdd => {
           handleNewReview(reviewToAdd)
       })
+
+      setReviewClick(false)
 
 
 

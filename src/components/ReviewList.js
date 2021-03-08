@@ -47,7 +47,7 @@ function ReviewList({id, reviews, handleNewReview, currentUser, deleteReview}) {
             <Divider horizontal />
 
             <Button onClick={handleClick} basic color='black'>Review This Artist</Button>
-            {reviewClick ? <NewReview handleNewReview={handleNewReview} currentUser={currentUser} id={id}/>: null}
+            {reviewClick ? <NewReview setReviewClick={setReviewClick} handleNewReview={handleNewReview} currentUser={currentUser} id={id}/>: null}
         </Comment.Group>
       
     );

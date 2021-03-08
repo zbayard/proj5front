@@ -23,8 +23,8 @@ function BookingCard({booking, currentUser, handleDeletedBooking}) {
       city,
       state,
       date,
-      start,
-      end
+      start_time: start,
+      end_time: end
     }
 
     fetch(`http://localhost:3000/bookings/${booking.id}`, {
