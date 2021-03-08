@@ -40,7 +40,7 @@ function HomePage(){
         />
         <Header
           as='h2'
-          content='Book local talent in your area for YOUR events'
+          content='Book local talent in your area for your private events'
           inverted
           style={{
             fontSize: '1.7em',
@@ -78,7 +78,7 @@ function HomePage(){
         </Grid.Row>
         <Grid.Row>
           <Grid.Column textAlign='center'>
-            <Button as={Link} to='/artists' size='huge'>See the artist's in your area</Button>
+            <Button as={Link} to='/login' size='huge'>See the artist's in your area</Button>
           </Grid.Column>
         </Grid.Row>
       </Grid>

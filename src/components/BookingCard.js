@@ -72,7 +72,7 @@ function BookingCard({booking, currentUser, handleDeletedBooking}) {
               <p><strong>{booking.user.username}</strong></p>
               
               
-                <Item.Header as='a'> {city}, {state}</Item.Header>
+                <Item.Header> {city}, {state}</Item.Header>
               <Item.Description>
                   {address}
                 <Item.Meta>{date} </Item.Meta>

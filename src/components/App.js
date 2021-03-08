@@ -17,6 +17,7 @@ function App() {
   const [search, setSearch] = useState('')
   const [currentUser, setCurrentUser] = useState()
   const [filterBy, setFilterBy] = useState('all')
+  const [bookings, setBookings] = useState([])
 
 
   useEffect(() => {
@@ -54,6 +55,12 @@ function App() {
       }
     })
 
+    useEffect (() => {
+      fetch(`http://localhost:3000/bookings`)
+      .then(r=>r.json())
+      .then(bookingsArr => setBookings(bookingsArr))
+    }, [])
+
     
 
     
@@ -75,7 +82,7 @@ function App() {
             <HomePage currentUser={currentUser}/>
         </Route>
         <Route exact path="/profile">
-            <UserProfile currentUser={currentUser}/>
+            <UserProfile bookings={bookings} currentUser={currentUser}/>
         </Route>
         <Route exact path="/login">
           <Login setCurrentUser={setCurrentUser}/>
@@ -87,7 +94,7 @@ function App() {
           <ArtistList artists={sortedArtists}/>
         </Route>
         <Route path="/artists/:id">
-          <ArtistPage currentUser={currentUser}/>
+          <ArtistPage bookings={bookings} setBookings={setBookings} currentUser={currentUser}/>
         </Route>
       </Switch>
     </div>

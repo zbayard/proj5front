@@ -18,12 +18,12 @@ function ReviewList({id, reviews, handleNewReview, currentUser, deleteReview}) {
 
     
     
-    //     const ratingArray = reviews.map(review =>{
-    //         return review.rating
-    //     })
-    //     const ratingSum = ratingArray.reduce((a, b) => a+ b, 0)
-    //     const averageRating = parseInt(ratingSum / ratingArray.length)
-    //     setAvgRating(averageRating)
+        // const ratingArray = reviews.map(review =>{
+        //     return review.rating
+        // })
+        // const ratingSum = ratingArray.reduce((a, b) => a+ b, 0)
+        // const averageRating = parseInt(ratingSum / ratingArray.length)
+        // setAvgRating(averageRating)
 
     // }
 

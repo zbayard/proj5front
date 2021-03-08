@@ -9,12 +9,12 @@ import ReactPlayer from 'react-player'
 
 
 
-function ArtistPage({currentUser}) {
+function ArtistPage({currentUser, bookings, setBookings}) {
 
   const [artist, setArtist] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [reviews, setReviews] = useState([])
-  const [bookings, setBookings] = useState([])
+  
   const [open, setOpen] = useState(false)
 
   const {id} = useParams();
@@ -37,11 +37,7 @@ function ArtistPage({currentUser}) {
       .then(reviewsArr => setReviews(reviewsArr))
     }, [])
 
-    useEffect (() => {
-      fetch(`http://localhost:3000/bookings`)
-      .then(r=>r.json())
-      .then(bookingsArr => setBookings(bookingsArr))
-    }, [])
+   
 
 
     const filteredBookings = bookings.filter(booking => {
@@ -92,6 +88,9 @@ function ArtistPage({currentUser}) {
 
       const {name, image, bio, type, genre, ig, youtube, spotify, soundcloud, facebook, website, rate, feature, likes} = artist;
 
+      // const avgRating = artist.reviews.map((review) => review.rating).reduce((a,b) => a + b, 0)/artist.ratings.length
+
+      
       
 
 
