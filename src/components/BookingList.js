@@ -9,11 +9,13 @@ function BookingList({bookings, currentUser, handleDeletedBooking}) {
   });
 
     return (
-      <div className="BeerList">
+      <div className="BookingList">
            <Header as='h2' id='bookings' dividing>
             Recent Bookings
           </Header>
         {bookingCards}
+       
+        
         
         
       </div>

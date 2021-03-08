@@ -97,9 +97,10 @@ function ArtistPage({currentUser}) {
 
     return (
 
-      <Grid >
-        <Grid.Column width={8} className='artist' border>
-          <Header size='huge' align='center'>{name}</Header>
+      <Grid className='artistpagefull' >
+        <Grid.Column width={4} className='artist' border>
+          <Divider horizontal></Divider>
+          <Header size='huge' align='center' dividing>{name}</Header>
           <img src={image} alt={name}/>
           <Divider horizontal></Divider>
           <List horizontal size='massive' align="center">
@@ -112,6 +113,12 @@ function ArtistPage({currentUser}) {
           </List>
           <Divider horizontal></Divider>
           
+        
+          
+
+          
+        </Grid.Column>
+          <Grid.Column width={8} className='artistpage' style={{overflow: 'auto', position: 'relative', maxHeight: 700, top: 40}}>
           <Card  fluid color='purple' style={{color: '#1b1c1d' }}>
             <Card.Content >
               <Card.Header id='artistName'>Featured Content</Card.Header>
@@ -138,18 +145,13 @@ function ArtistPage({currentUser}) {
               </Modal>
             </Card.Content>
           </Card>
-        
-          
-
-          
-        </Grid.Column>
-          <Grid.Column width={4} className='artistpage' style={{overflow: 'auto', position: 'relative', maxHeight: 700, top: 40}}>
             <BookingList id={id} bookings={filteredBookings} currentUser={currentUser} handleDeletedBooking={handleDeletedBooking} />
           </Grid.Column>
           <Grid.Column width={4} className='reviewlist' style={{overflow: 'auto', position: 'relative', maxHeight: 700, top: 40}}>
             <ReviewList id={id} reviews={filteredReviews} handleNewReview={handleNewReview} currentUser={currentUser} deleteReview={deleteReview} />
           </Grid.Column>
       </Grid>
+          
       
     );
   }

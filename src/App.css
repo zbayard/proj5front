@@ -3,7 +3,8 @@
   background-color: rgb(100, 65, 164);
   background-size: auto;
   background-position: static;
-  overflow: hidden;
+  overflow: inherit;
+  
 }
 
 .App-header {
@@ -20,6 +21,7 @@
 .Header {
   background-color: rgb(27, 28, 29);
 }
+
 
 
 

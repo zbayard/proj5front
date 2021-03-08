@@ -68,13 +68,14 @@ function BookingCard({booking, currentUser, handleDeletedBooking}) {
         <Item.Group>
           <Item>
               <Item.Image size='tiny' src={booking.user.image} />
-              <Divider horizontal />
-              <Item.Header>{booking.user.username}</Item.Header>
             <Item.Content text align='left'>
+              <p><strong>{booking.user.username}</strong></p>
+              
+              
                 <Item.Header as='a'> {city}, {state}</Item.Header>
-                <Item.Meta>{date} </Item.Meta>
               <Item.Description>
                   {address}
+                <Item.Meta>{date} </Item.Meta>
                 <Item.Extra>Start Time: {start} End Time: {end}</Item.Extra>
               
               </Item.Description>
