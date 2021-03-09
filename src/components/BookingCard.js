@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {Divider, Item, Button, Modal, Segment, Form, Header, Image} from 'semantic-ui-react'
+import {Divider, Item, Button, Modal, Segment, Form, Header, Image, Icon} from 'semantic-ui-react'
 import logomain from '../logos/purple.png';
 
 function BookingCard({booking, currentUser, handleDeletedBooking}) {
@@ -72,11 +72,11 @@ function BookingCard({booking, currentUser, handleDeletedBooking}) {
               <p><strong>{booking.user.username}</strong></p>
               
               
-                <Item.Header> {city}, {state}</Item.Header>
+                <Item.Header><Icon name='map'/> {city}, {state}</Item.Header>
               <Item.Description>
-                  {address}
-                <Item.Meta>{date} </Item.Meta>
-                <Item.Extra>Start Time: {start} End Time: {end}</Item.Extra>
+                  <Icon name='location arrow'></Icon>{address}
+                <Item.Meta><Icon name='calendar alternate outline'/>{date} </Item.Meta>
+                <Item.Extra> <Icon name='clock outline'/>{start} - {end}</Item.Extra>
               
               </Item.Description>
               

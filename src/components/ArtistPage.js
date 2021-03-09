@@ -11,14 +11,25 @@ import ReactPlayer from 'react-player'
 
 function ArtistPage({currentUser, bookings, setBookings}) {
 
+
+  
+  
+  
   const [artist, setArtist] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [reviews, setReviews] = useState([])
+  // const ratingArray = filtered.map(review =>{
+  //   return review.rating
+  // })
+  // const ratingSum = ratingArray.reduce((a, b) => a+ b, 0)
+  // const averageRating = parseInt(ratingSum / ratingArray.length)
+  // const [avgRating, setAvgRating] = useState(3)
   
   const [open, setOpen] = useState(false)
 
   const {id} = useParams();
 
+  
   
   
 
@@ -101,7 +112,7 @@ function ArtistPage({currentUser, bookings, setBookings}) {
           <Divider horizontal></Divider>
           <Header size='huge' align='center' dividing>{name}</Header>
           <img src={image} alt={name}/>
-          <Divider horizontal></Divider>
+    
           <List horizontal size='massive' align="center">
             <List.Item icon='spotify' as='a' target='_blank' href={spotify} />
             <List.Item icon='soundcloud' as='a' target='_blank' href={soundcloud} />
@@ -125,14 +136,14 @@ function ArtistPage({currentUser, bookings, setBookings}) {
                 <ReactPlayer url={feature}/>
                 </Card.Meta>
                   <Card.Description>
-                    {bio}
+                    <Icon name='vcard'/>{bio}
                   </Card.Description>
             </Card.Content>
               <Card.Content extra>
            
               <Icon name='music' />
               {genre} {type}
-              <p>${rate}/hour</p>
+              <p><Icon name='usd'/>{rate}/hour</p>
             
               <Modal basic
                 onClose={() => setOpen(false)}

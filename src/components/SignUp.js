@@ -98,14 +98,14 @@ function SignUp({setCurrentUser}) {
               onChange={e=> setBio(e.target.value)}
             />
             <Form.Input
-              icon='vcard'
+              icon='map'
               iconPosition='left'
               label='City'
               value={city}
               onChange={e=> setCity(e.target.value)}
             />
             <Form.Input
-              icon='vcard'
+              icon='map'
               iconPosition='left'
               label='State'
               value={state}

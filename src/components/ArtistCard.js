@@ -20,7 +20,7 @@ function ArtistCard({artist}) {
            
               <Icon name='music' />
               {genre} {type}
-              <p>${rate}/hour</p>
+              <p><Icon name='usd'/>{rate}/hour</p>
             
           </Card.Content>
       </Card>

@@ -1,4 +1,4 @@
-import {Card, Image, Grid, Divider, Header, Item} from 'semantic-ui-react';
+import {Card, Image, Grid, Divider, Header, Item, Icon} from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
 
 function UserProfile({currentUser, bookings}) {
@@ -23,11 +23,11 @@ function UserProfile({currentUser, bookings}) {
           <Item.Content text align='left'>
             <Link to={`/artists/${booking.artist.id}`}><strong>{booking.artist.name}</strong></Link>
               <p></p>
-                <Item.Header> {booking.city}, {booking.state}</Item.Header>
+                <Item.Header> <Icon name='map'/> {booking.city}, {booking.state}</Item.Header>
             <Item.Description>
-              {booking.address}
-                <Item.Meta>{booking.date} </Item.Meta>
-                  <Item.Extra>Start Time: {booking.start} End Time: {booking.end}</Item.Extra>
+              <Icon name='location arrow'/>{booking.address}
+                <Item.Meta><Icon name='calendar alternate outline'/>{booking.date} </Item.Meta>
+                  <Item.Extra><Icon name='clock outline'/>{booking.start_time} - {booking.end_time}</Item.Extra>
         
             </Item.Description>
         
@@ -51,9 +51,11 @@ function UserProfile({currentUser, bookings}) {
           <Divider horizontal></Divider>
           <Header size='huge' align='center' dividing>{currentUser.name}</Header>
           <img src={currentUser.image} alt={currentUser.name}/>
-          <Divider horizontal></Divider>
-          <Header>{currentUser.username}</Header>
-            {currentUser.bio}
+          
+          <Header> <Icon name='at'/>{currentUser.username}</Header>
+            <Icon name='map'/> <strong>{currentUser.city}, {currentUser.state}</strong>
+            <p></p>
+            <Icon name='vcard'/> <strong>{currentUser.bio}</strong>
           <Divider horizontal></Divider>
         
         </Grid.Column>

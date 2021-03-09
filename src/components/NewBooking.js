@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {Form, Button, Divider, Segment, Header, Image} from 'semantic-ui-react';
+import {Form, Button, Divider, Segment, Header, Image, Icon} from 'semantic-ui-react';
 import logomain from '../logos/purple.png';
 
 function NewBooking({handleNewBooking, currentUser, id, setOpen}) {
@@ -52,9 +52,9 @@ function NewBooking({handleNewBooking, currentUser, id, setOpen}) {
           </Header>
           <Form onSubmit={handleBooking} inverted>
               <Divider horizontal></Divider>
-              <Form.Input value={address} onChange={e=> setAddress(e.target.value)}type='text' name='address' placeholder='address'/>
-              <Form.Input value={city} onChange={e=> setCity(e.target.value)} type='text' name='city' placeholder='city'/>
-              <Form.Input value={state} onChange={e=> setState(e.target.value)} type='text' name='state' placeholder='state'/>
+              <Form.Input icon='location arrow' value={address} onChange={e=> setAddress(e.target.value)}type='text' name='address' placeholder='address'/>
+              <Form.Input icon ='map' value={city} onChange={e=> setCity(e.target.value)} type='text' name='city' placeholder='city'/>
+              <Form.Input icon='map' value={state} onChange={e=> setState(e.target.value)} type='text' name='state' placeholder='state'/>
               <Form.Input value={date} onChange={e=> setDate(e.target.value)} type='date' name='date' placeholder='date'/>
               <Form.Input value={start} onChange={e=> setStart(e.target.value)} type='time' name='start-time' placeholder='start time'/>
               <Form.Input value={end} onChange={e=> setEnd(e.target.value)} type='time' name='end-time' placeholder='end time'/>
