@@ -66,10 +66,10 @@ function HomePage(){
               We provide a platform for aspiring artists to gain exposure & get paid.  Say goodbye to begging all of your friends to come support you at your underpaid gig at some random bar.
             </p>
             <Header as='h3' style={{ fontSize: '2em' }}>
-              The artist decides how much they make
+              Throw awesome parties
             </Header>
             <p style={{ fontSize: '1.33em' }}>
-              Yes that's right, no more free shows.  You decide how much you get paid per hour.
+              Order an artist just like you would a pizza.
             </p>
           </Grid.Column>
           <Grid.Column floated='right' width={6}>
@@ -78,7 +78,7 @@ function HomePage(){
         </Grid.Row>
         <Grid.Row>
           <Grid.Column textAlign='center'>
-            <Button as={Link} to='/login' size='huge'>See the artist's in your area</Button>
+            <Button color='black' as={Link} to='/login' size='huge'>Log in to see the artist's in your area</Button>
           </Grid.Column>
         </Grid.Row>
       </Grid>

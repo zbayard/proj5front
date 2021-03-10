@@ -89,7 +89,7 @@ function BookingCard({booking, currentUser, handleDeletedBooking}) {
           onOpen={() => setOpen(true)}
           open={open}
           size='small'
-          trigger={currentUser.id === booking.user.id ? <Button basic color='black'>Update/Cancel Booking</Button> : null}>
+          trigger={currentUser.id === booking.user.id ? <Button size='tiny' basic color='black'><Icon name='edit outline'/><Icon name='delete'/></Button>:null}>
             <Segment inverted>
               <Header as='h2' color='black' textAlign='center'>
                 <Image src={logomain} /> Update {currentUser.name}'s Booking
@@ -104,7 +104,7 @@ function BookingCard({booking, currentUser, handleDeletedBooking}) {
               <Form.Input value={end} onChange={e=> setEnd(e.target.value)} type='time' name='end-time' placeholder={booking.end_time}/>
               
               
-              <Button type='submit'>Update Booking</Button>
+              <Button type='submit'>Update/Cancel Booking</Button>
               <Button onClick={deleteBooking}>Cancel Booking</Button>
             
           </Form>
