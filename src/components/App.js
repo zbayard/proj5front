@@ -24,7 +24,7 @@ function App() {
 
     const token = localStorage.getItem('token')
     if (token) { 
-      fetch('http://localhost:3000/profile', { 
+      fetch('https://mighty-ocean-44315.herokuapp.com/profile', { 
         headers: { 
           Authorization: `Bearer ${token}`,
         } ,
@@ -39,7 +39,7 @@ function App() {
   
 
     useEffect(()=>
-      fetch('http://localhost:3000/artists')
+      fetch('https://mighty-ocean-44315.herokuapp.com/artists')
       .then(res => res.json())
       .then(artistData => setArtists(artistData))
     , [])
@@ -56,7 +56,7 @@ function App() {
     })
 
     useEffect (() => {
-      fetch(`http://localhost:3000/bookings`)
+      fetch(`https://mighty-ocean-44315.herokuapp.com/bookings`)
       .then(r=>r.json())
       .then(bookingsArr => setBookings(bookingsArr))
     }, [])

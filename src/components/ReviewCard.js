@@ -4,7 +4,7 @@ function ReviewCard({review, currentUser, deleteReview}) {
 
   function handleDeleteClick(){
 
-    fetch(`http://localhost:3000/reviews/${review.id}`, {
+    fetch(`https://mighty-ocean-44315.herokuapp.com/reviews/${review.id}`, {
     method: 'DELETE'
     })
     deleteReview(review.id)

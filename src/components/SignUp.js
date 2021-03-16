@@ -30,7 +30,7 @@ function SignUp({setCurrentUser}) {
 
     }
 
-    fetch('http://localhost:3000/signup', {
+    fetch('https://mighty-ocean-44315.herokuapp.com/signup', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

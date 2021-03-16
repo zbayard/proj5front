@@ -34,7 +34,7 @@ function ArtistPage({currentUser, bookings, setBookings}) {
   
 
   useEffect(() => {
-    fetch(`http://localhost:3000/artists/${id}`)
+    fetch(`https://mighty-ocean-44315.herokuapp.com/artists/${id}`)
       .then((r) => r.json())
       .then((artist) => {
         setArtist(artist);
@@ -43,7 +43,7 @@ function ArtistPage({currentUser, bookings, setBookings}) {
     }, [id]);
 
     useEffect (() => {
-      fetch(`http://localhost:3000/reviews`)
+      fetch(`https://mighty-ocean-44315.herokuapp.com/reviews`)
       .then(r=>r.json())
       .then(reviewsArr => setReviews(reviewsArr))
     }, [])

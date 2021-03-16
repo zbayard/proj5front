@@ -17,7 +17,7 @@ function NewReview({handleNewReview, currentUser, id, setReviewClick}) {
       comment
     }
 
-    fetch('http://localhost:3000/reviews', {
+    fetch('https://mighty-ocean-44315.herokuapp.com/reviews', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

@@ -28,7 +28,7 @@ function NewBooking({handleNewBooking, currentUser, id, setOpen}) {
       payment: 100
     }
 
-    fetch('http://localhost:3000/bookings', {
+    fetch('https://mighty-ocean-44315.herokuapp.com/bookings', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
