@@ -33,7 +33,7 @@ function ReviewList({id, reviews, handleNewReview, currentUser, deleteReview}) {
       <Comment.Group>
             <Header as='h2' id='reviewslist' dividing>
                 Reviews
-                <Rating  defaultRating={0} maxRating={5} disabled/> 
+                {/* <Rating  defaultRating={0} maxRating={5} disabled/>  */}
             </Header>
             {reviewCards}
 
